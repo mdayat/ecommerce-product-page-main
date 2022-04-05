@@ -19,6 +19,7 @@
     "noFallthroughCasesInSwitch": true,
     "paths": {
       "@components/*": ["app/components/*"],
+      "@constants": ["app/constants"],
       "@icons/*": ["public/assets/icons/*"],
       "@images/*": ["public/assets/images/*"]
     },

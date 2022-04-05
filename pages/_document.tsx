@@ -2,7 +2,7 @@ import { Html, Head, Main, NextScript } from "next/document";
 
 function Document() {
   return (
-    <Html lang="id" className="scroll-smooth">
+    <Html lang="en" className="scroll-smooth">
       <Head>
         <link rel="icon" href="/icons/favicon-32x32.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -17,7 +17,7 @@ function Document() {
         />
       </Head>
 
-      <body>
+      <body className="bg-neutral-white">
         <Main />
         <NextScript />
       </body>

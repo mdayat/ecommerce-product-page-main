@@ -12,6 +12,7 @@ module.exports = {
       wide: "1440px",
     },
     colors: {
+      transparent: "transparent",
       primary: {
         orange: "hsl(26, 100%, 55%)",
         paleOrange: "hsl(25, 100%, 94%)",
