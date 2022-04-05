@@ -6,7 +6,6 @@ import { NavbarLinks } from "../NavbarLinks";
 import { useBreakpoint } from "app/hooks";
 
 import AvatarImage from "@images/image-avatar.png";
-import CartIcon from "@icons/icon-cart.svg";
 import MenuIcon from "@icons/icon-menu.svg";
 
 interface TopNavbarProps {
@@ -21,7 +20,7 @@ const TopNavbar = ({ children }: TopNavbarProps) => {
   if (breakpoint.size === "DESKTOP") isMenuClicked && setIsMenuClicked(false);
 
   return (
-    <section className="w-11/12 mx-auto flex justify-between items-center h-16 tablet:h-24 tablet:border-b-[1px] tablet:border-neutral-darkGrayishBlue">
+    <section className="w-11/12 mx-auto flex justify-between items-center h-16 tablet:h-24 tablet:border-b-[1px] tablet:border-neutral-grayishBlue">
       <div className="h-full flex justify-between items-center gap-x-4 tablet:gap-x-6 laptop:gap-x-8 desktop:gap-x-10">
         {!isMenuClicked && (
           <button
@@ -31,7 +30,7 @@ const TopNavbar = ({ children }: TopNavbarProps) => {
             onClick={() => setIsMenuClicked(true)}
           >
             <i aria-label="Menu Icon">
-              <MenuIcon />
+              <MenuIcon className="fill-neutral-darkGrayishBlue" />
             </i>
           </button>
         )}
@@ -44,7 +43,7 @@ const TopNavbar = ({ children }: TopNavbarProps) => {
           </h2>
         )}
 
-        {children}
+        {breakpoint.size === "DESKTOP" && <NavbarLinks device="DESKTOP" />}
 
         {isMenuClicked && breakpoint.size === "MOBILE" && (
           <NavbarLinks device="MOBILE" setIsMenuClicked={setIsMenuClicked} />
@@ -52,19 +51,13 @@ const TopNavbar = ({ children }: TopNavbarProps) => {
       </div>
 
       <div className="flex justify-between items-center gap-x-4 tablet:gap-x-6 laptop:gap-x-8 desktop:gap-x-10">
-        <button type="button" aria-label="Cart Toggle Button">
-          <i aria-label="Cart Icon">
-            <CartIcon />
-          </i>
-        </button>
+        {children}
 
-        <figure
-          className={`${isMenuClicked && "-z-10"} grid place-items-center`}
-        >
+        <figure className="grid place-items-center">
           <button
             type="button"
             aria-label="Avatar Profile Button"
-            className="rounded-full w-[28px] tablet:w-[38px] tablet:duration-300 tablet:ease-in-out tablet:hover:ring-2 tablet:hover:ring-primary-orange laptop:w-[42px] desktop:w-[46px]"
+            className="rounded-full w-6 tablet:w-[38px] tablet:duration-300 tablet:ease-in-out tablet:hover:ring-2 tablet:hover:ring-primary-orange laptop:w-[42px] desktop:w-[46px]"
           >
             <Image
               src={AvatarImage}

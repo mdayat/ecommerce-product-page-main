@@ -12,8 +12,6 @@ const NavbarLinks = ({
   device = "DESKTOP",
   setIsMenuClicked = () => {},
 }: NavbarLinksProps) => {
-  console.log("LINKS");
-
   const handleLinkBorderOnMouseEnter = (
     event: MouseEvent<HTMLAnchorElement>
   ) => {
@@ -101,7 +99,7 @@ const NavbarLinks = ({
           </ul>
         </nav>
       ) : (
-        <nav className="fixed top-0 bottom-0 left-0 w-[60vw] bg-neutral-white after:absolute after:top-0 after:bottom-0 after:w-[40vw] after:ml-[60vw] after:bg-neutral-black after:bg-opacity-70">
+        <nav className="fixed top-0 bottom-0 left-0 z-10 w-[60vw] bg-neutral-white after:absolute after:top-0 after:bottom-0 after:w-[40vw] after:ml-[60vw] after:bg-neutral-black after:bg-opacity-70">
           <button
             type="button"
             aria-label="Close SideBar Button"
