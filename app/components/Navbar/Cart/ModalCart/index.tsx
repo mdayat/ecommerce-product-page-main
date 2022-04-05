@@ -4,6 +4,8 @@ import FirstProductThumbnailImage from "@images/image-product-1-thumbnail.jpg";
 import DeleteIcon from "@icons/icon-delete.svg";
 
 const ModalCart = () => {
+  console.log("MODAL");
+
   return (
     <section className="w-11/12 mx-auto absolute top-40 left-0 right-0 flex flex-col justify-between gap-y-6 bg-neutral-white rounded-lg drop-shadow-2xl px-5 pb-7">
       <h4 className="w-full font-bold h-16 flex justify-start items-center border-b-[1px] border-neutral-grayishBlue">

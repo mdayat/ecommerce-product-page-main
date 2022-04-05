@@ -26,6 +26,7 @@ const TopNavbar = ({ children }: TopNavbarProps) => {
           <button
             type="button"
             aria-label="Open SideBar Button"
+            aria-expanded="false"
             className="mt-1 tablet:hidden"
             onClick={() => setIsMenuClicked(true)}
           >

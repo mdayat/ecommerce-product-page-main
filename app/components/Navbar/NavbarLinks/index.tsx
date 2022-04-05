@@ -103,6 +103,7 @@ const NavbarLinks = ({
           <button
             type="button"
             aria-label="Close SideBar Button"
+            aria-expanded="true"
             className="grid place-items-center h-16 pl-4 mobile:pl-5"
             onClick={() => setIsMenuClicked(false)}
           >
