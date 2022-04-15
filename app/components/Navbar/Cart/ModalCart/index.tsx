@@ -46,7 +46,7 @@ const ModalCart = () => {
       <button
         type="button"
         aria-label="Checkout Button"
-        className="w-full bg-primary-orange text-neutral-white rounded-lg duration-300 ease-in-out hover:bg-opacity-75 py-3.5"
+        className="w-full bg-primary-orange text-neutral-white rounded-lg hover:opacity-75 hover:shadow-3xl hover:shadow-primary-orange duration-300 ease-in-out py-3.5"
       >
         Checkout
       </button>

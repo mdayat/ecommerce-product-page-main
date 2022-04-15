@@ -20,7 +20,7 @@ const TopNavbar = ({ children }: TopNavbarProps) => {
   if (breakpoint.size === "DESKTOP") isMenuClicked && setIsMenuClicked(false);
 
   return (
-    <section className="w-11/12 mx-auto flex justify-between items-center h-16 tablet:h-24 tablet:border-b-[1px] tablet:border-neutral-grayishBlue">
+    <section className="w-10/12 mx-auto flex justify-between items-center h-16 tablet:h-24 tablet:border-b-[1px] tablet:border-neutral-grayishBlue">
       <div className="h-full flex justify-between items-center gap-x-4 tablet:gap-x-6 laptop:gap-x-8 desktop:gap-x-10">
         {!isMenuClicked && (
           <button

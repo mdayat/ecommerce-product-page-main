@@ -17,7 +17,7 @@ function Document() {
         />
       </Head>
 
-      <body className="bg-neutral-white">
+      <body className="bg-neutral-white min-h-screen">
         <Main />
         <NextScript />
       </body>

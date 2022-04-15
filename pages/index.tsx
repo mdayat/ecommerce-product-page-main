@@ -1,14 +1,24 @@
 import type { NextPage } from "next";
 
-import { NavbarCart, TopNavbar } from "@components/Navbar";
+import {
+  NavbarCart,
+  TopNavbar,
+  ProductDetails,
+  ProductImages,
+} from "@components";
 
 const Home: NextPage = () => {
   return (
-    <main className="min-h-screen">
+    <>
       <TopNavbar>
         <NavbarCart />
       </TopNavbar>
-    </main>
+
+      <main className="w-10/12 mx-auto grid grid-cols-2 mt-20">
+        <ProductImages />
+        <ProductDetails />
+      </main>
+    </>
   );
 };
 
