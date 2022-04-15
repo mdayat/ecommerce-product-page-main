@@ -1,8 +1,7 @@
 import type { NextPage } from "next";
 
 import {
-  NavbarCart,
-  TopNavbar,
+  TopNavbarComponents,
   ProductDetails,
   ProductImages,
 } from "@components";
@@ -10,9 +9,7 @@ import {
 const Home: NextPage = () => {
   return (
     <>
-      <TopNavbar>
-        <NavbarCart />
-      </TopNavbar>
+      <TopNavbarComponents />
 
       <main className="w-10/12 mx-auto grid grid-cols-2 mt-20">
         <ProductImages />

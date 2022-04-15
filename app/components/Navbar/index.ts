@@ -1,3 +1,3 @@
 export * from "./Cart";
-export * from "./TopNavbar";
+export * from "./TopNavbarComponents";
 export * from "./NavbarLinks";

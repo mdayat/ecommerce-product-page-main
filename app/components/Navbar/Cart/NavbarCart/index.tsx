@@ -1,14 +1,27 @@
-import { useState } from "react";
+import { Dispatch, SetStateAction, useEffect } from "react";
 
 import { ModalCart } from "../ModalCart";
-import { useAccessibilityHandler } from "app/hooks";
+import { useAccessibilityHandler } from "@hooks";
 
 import CartIcon from "@icons/icon-cart.svg";
 
-const NavbarCart = () => {
-  const [isCartClicked, setIsCartClicked] = useState(false);
+interface NavbarCartProps {
+  isCartClicked: boolean;
+  isSidebarCollapsed: boolean;
+  setIsCartClicked: Dispatch<SetStateAction<boolean>>;
+}
 
+const NavbarCart = ({
+  isCartClicked = false,
+  isSidebarCollapsed = false,
+
+  setIsCartClicked = () => {},
+}: NavbarCartProps) => {
   const { handleButtonClick, handleButtonPressed } = useAccessibilityHandler();
+
+  useEffect(() => {
+    if (isSidebarCollapsed) setIsCartClicked(false);
+  }, [isSidebarCollapsed, setIsCartClicked]);
 
   return (
     <>

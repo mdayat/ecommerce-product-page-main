@@ -22,10 +22,14 @@
       "@components/*": ["app/components/*"],
       "@constants": ["app/constants"],
       "@constants/*": ["app/constants/*"],
+      "@hooks": ["app/hooks"],
+      "@hooks/*": ["app/hooks/*"],
       "@icons": ["public/assets/icons"],
       "@icons/*": ["public/assets/icons/*"],
       "@images": ["public/assets/images"],
-      "@images/*": ["public/assets/images/*"]
+      "@images/*": ["public/assets/images/*"],
+      "@interfaces": ["app/interfaces"],
+      "@interfaces/*": ["app/interfaces/*"]
     },
     "pretty": true,
     "resolveJsonModule": true,

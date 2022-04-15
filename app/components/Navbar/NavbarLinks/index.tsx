@@ -5,12 +5,12 @@ import CloseIcon from "@icons/icon-close.svg";
 
 interface NavbarLinksProps {
   device: "MOBILE" | "DESKTOP";
-  setIsMenuClicked?: Dispatch<SetStateAction<boolean>>;
+  setIsSidebarCollapsed?: Dispatch<SetStateAction<boolean>>;
 }
 
 const NavbarLinks = ({
   device = "DESKTOP",
-  setIsMenuClicked = () => {},
+  setIsSidebarCollapsed = () => {},
 }: NavbarLinksProps) => {
   const handleLinkBorderOnMouseEnter = (
     event: MouseEvent<HTMLAnchorElement>
@@ -19,8 +19,6 @@ const NavbarLinks = ({
 
     parentElement?.classList.remove("border-transparent");
     parentElement?.classList.add("border-primary-orange");
-
-    return;
   };
 
   const handleLinkBorderOnMouseOut = (event: MouseEvent<HTMLAnchorElement>) => {
@@ -28,8 +26,6 @@ const NavbarLinks = ({
 
     parentElement?.classList.remove("border-primary-orange");
     parentElement?.classList.add("border-transparent");
-
-    return;
   };
 
   return (
@@ -105,7 +101,7 @@ const NavbarLinks = ({
             aria-label="Close SideBar Button"
             aria-expanded="true"
             className="grid place-items-center h-16 pl-4 mobile:pl-5"
-            onClick={() => setIsMenuClicked(false)}
+            onClick={() => setIsSidebarCollapsed(false)}
           >
             <i aria-label="Close Icon">
               <CloseIcon />

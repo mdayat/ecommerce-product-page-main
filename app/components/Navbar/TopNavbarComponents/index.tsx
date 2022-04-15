@@ -1,34 +1,37 @@
-import { ReactNode, useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+import { NavbarCart } from "../Cart";
 import { NavbarLinks } from "../NavbarLinks";
-import { useBreakpoint } from "app/hooks";
+import { useBreakpoint } from "@hooks";
 
 import AvatarImage from "@images/image-avatar.png";
 import MenuIcon from "@icons/icon-menu.svg";
 
-interface TopNavbarProps {
-  children?: ReactNode;
-}
-
-const TopNavbar = ({ children }: TopNavbarProps) => {
-  const [isMenuClicked, setIsMenuClicked] = useState(false);
+const TopNavbarComponents = () => {
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
+  const [isCartClicked, setIsCartClicked] = useState(false);
 
   const { breakpoint } = useBreakpoint();
 
-  if (breakpoint.size === "DESKTOP") isMenuClicked && setIsMenuClicked(false);
+  if (breakpoint.size === "DESKTOP")
+    isSidebarCollapsed && setIsSidebarCollapsed(false);
+
+  useEffect(() => {
+    if (isCartClicked) setIsSidebarCollapsed(false);
+  }, [isCartClicked, setIsSidebarCollapsed]);
 
   return (
     <section className="w-10/12 mx-auto flex justify-between items-center h-16 tablet:h-24 tablet:border-b-[1px] tablet:border-neutral-grayishBlue">
       <div className="h-full flex justify-between items-center gap-x-4 tablet:gap-x-6 laptop:gap-x-8 desktop:gap-x-10">
-        {!isMenuClicked && (
+        {!isSidebarCollapsed && (
           <button
             type="button"
             aria-label="Open SideBar Button"
             aria-expanded="false"
             className="mt-1 tablet:hidden"
-            onClick={() => setIsMenuClicked(true)}
+            onClick={() => setIsSidebarCollapsed(true)}
           >
             <i aria-label="Menu Icon">
               <MenuIcon className="fill-neutral-darkGrayishBlue" />
@@ -36,7 +39,7 @@ const TopNavbar = ({ children }: TopNavbarProps) => {
           </button>
         )}
 
-        {!isMenuClicked && (
+        {!isSidebarCollapsed && (
           <h2 className="font-kumbhSans font-bold text-neutral-veryVarkBlue text-2xl laptop:text-3xl desktop:text-4xl">
             <Link href="#">
               <a>sneakers</a>
@@ -46,13 +49,20 @@ const TopNavbar = ({ children }: TopNavbarProps) => {
 
         {breakpoint.size === "DESKTOP" && <NavbarLinks device="DESKTOP" />}
 
-        {isMenuClicked && breakpoint.size === "MOBILE" && (
-          <NavbarLinks device="MOBILE" setIsMenuClicked={setIsMenuClicked} />
+        {isSidebarCollapsed && breakpoint.size === "MOBILE" && (
+          <NavbarLinks
+            device="MOBILE"
+            setIsSidebarCollapsed={setIsSidebarCollapsed}
+          />
         )}
       </div>
 
       <div className="flex justify-between items-center gap-x-4 tablet:gap-x-6 laptop:gap-x-8 desktop:gap-x-10">
-        {children}
+        <NavbarCart
+          isCartClicked={isCartClicked}
+          isSidebarCollapsed={isSidebarCollapsed}
+          setIsCartClicked={setIsCartClicked}
+        />
 
         <figure className="grid place-items-center">
           <button
@@ -73,4 +83,4 @@ const TopNavbar = ({ children }: TopNavbarProps) => {
   );
 };
 
-export { TopNavbar };
+export { TopNavbarComponents };
