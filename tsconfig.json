@@ -18,9 +18,13 @@
     "noUnusedLocals": true,
     "noFallthroughCasesInSwitch": true,
     "paths": {
+      "@components": ["app/components"],
       "@components/*": ["app/components/*"],
       "@constants": ["app/constants"],
+      "@constants/*": ["app/constants/*"],
+      "@icons": ["public/assets/icons"],
       "@icons/*": ["public/assets/icons/*"],
+      "@images": ["public/assets/images"],
       "@images/*": ["public/assets/images/*"]
     },
     "pretty": true,
