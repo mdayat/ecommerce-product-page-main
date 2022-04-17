@@ -33,10 +33,10 @@ const NavbarLinks = ({
       {device === "DESKTOP" ? (
         <nav className="h-full hidden tablet:grid place-items-center">
           <ul className="group h-full flex justify-between items-center tablet:gap-x-4 laptop:gap-x-6 desktop:gap-x-8">
-            <li className="h-full grid place-items-center duration-300 ease-in-out pt-1 border-b-4 border-transparent">
+            <li className="h-full grid place-items-center transition-all duration-500 pt-1 border-b-4 border-transparent">
               <Link href="#">
                 <a
-                  className="text-neutral-darkGrayishBlue duration-300 ease-in-out tablet:text-sm laptop:text-base"
+                  className="text-neutral-darkGrayishBlue transition-all duration-500 tablet:text-sm laptop:text-base"
                   onMouseEnter={handleLinkBorderOnMouseEnter}
                   onMouseOut={handleLinkBorderOnMouseOut}
                 >
@@ -45,10 +45,10 @@ const NavbarLinks = ({
               </Link>
             </li>
 
-            <li className="h-full grid place-items-center duration-300 ease-in-out pt-1 border-b-4 border-transparent">
+            <li className="h-full grid place-items-center transition-all duration-500 pt-1 border-b-4 border-transparent">
               <Link href="#">
                 <a
-                  className="text-neutral-darkGrayishBlue duration-300 ease-in-out tablet:text-sm laptop:text-base"
+                  className="text-neutral-darkGrayishBlue transition-all duration-500 tablet:text-sm laptop:text-base"
                   onMouseEnter={handleLinkBorderOnMouseEnter}
                   onMouseOut={handleLinkBorderOnMouseOut}
                 >
@@ -57,10 +57,10 @@ const NavbarLinks = ({
               </Link>
             </li>
 
-            <li className="h-full grid place-items-center duration-300 ease-in-out pt-1 border-b-4 border-transparent">
+            <li className="h-full grid place-items-center transition-all duration-500 pt-1 border-b-4 border-transparent">
               <Link href="#">
                 <a
-                  className="text-neutral-darkGrayishBlue duration-300 ease-in-out tablet:text-sm laptop:text-base"
+                  className="text-neutral-darkGrayishBlue transition-all duration-500 tablet:text-sm laptop:text-base"
                   onMouseEnter={handleLinkBorderOnMouseEnter}
                   onMouseOut={handleLinkBorderOnMouseOut}
                 >
@@ -69,10 +69,10 @@ const NavbarLinks = ({
               </Link>
             </li>
 
-            <li className="h-full grid place-items-center duration-300 ease-in-out pt-1 border-b-4 border-transparent">
+            <li className="h-full grid place-items-center transition-all duration-500 pt-1 border-b-4 border-transparent">
               <Link href="#">
                 <a
-                  className="text-neutral-darkGrayishBlue duration-300 ease-in-out tablet:text-sm laptop:text-base"
+                  className="text-neutral-darkGrayishBlue transition-all duration-500 tablet:text-sm laptop:text-base"
                   onMouseEnter={handleLinkBorderOnMouseEnter}
                   onMouseOut={handleLinkBorderOnMouseOut}
                 >
@@ -81,10 +81,10 @@ const NavbarLinks = ({
               </Link>
             </li>
 
-            <li className="h-full grid place-items-center duration-300 ease-in-out pt-1 border-b-4 border-transparent">
+            <li className="h-full grid place-items-center transition-all duration-500 pt-1 border-b-4 border-transparent">
               <Link href="#">
                 <a
-                  className="text-neutral-darkGrayishBlue duration-300 ease-in-out tablet:text-sm laptop:text-base"
+                  className="text-neutral-darkGrayishBlue transition-all duration-500 tablet:text-sm laptop:text-base"
                   onMouseEnter={handleLinkBorderOnMouseEnter}
                   onMouseOut={handleLinkBorderOnMouseOut}
                 >

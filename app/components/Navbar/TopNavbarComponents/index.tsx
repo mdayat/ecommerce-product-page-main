@@ -33,7 +33,7 @@ const TopNavbarComponents = () => {
             className="mt-1 tablet:hidden"
             onClick={() => setIsSidebarCollapsed(true)}
           >
-            <i aria-label="Menu Icon">
+            <i role="img" aria-label="Menu Icon">
               <MenuIcon className="fill-neutral-darkGrayishBlue" />
             </i>
           </button>

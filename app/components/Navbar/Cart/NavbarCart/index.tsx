@@ -47,7 +47,7 @@ const NavbarCart = ({
           3
         </span>
 
-        <i aria-label="Cart Icon">
+        <i role="img" aria-label="Cart Icon">
           <CartIcon className="fill-neutral-veryVarkBlue" />
         </i>
       </button>
