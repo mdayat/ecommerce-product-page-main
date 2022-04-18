@@ -28,8 +28,8 @@
       "@icons/*": ["public/assets/icons/*"],
       "@images": ["public/assets/images"],
       "@images/*": ["public/assets/images/*"],
-      "@interfaces": ["app/interfaces"],
-      "@interfaces/*": ["app/interfaces/*"]
+      "@utils": ["app/utils"],
+      "@utils/*": ["app/utils/*"]
     },
     "pretty": true,
     "resolveJsonModule": true,
