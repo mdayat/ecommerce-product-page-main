@@ -1,6 +1,9 @@
+/* eslint-disable indent */
 import Image from "next/image";
+import { MouseEvent, useRef } from "react";
 
 import { useBreakpoint } from "@hooks";
+import { setNewImage } from "@utils";
 
 import FirstProductImage from "@images/image-product-1.jpg";
 import FirstProductThumbnailImage from "@images/image-product-1-thumbnail.jpg";
@@ -9,11 +12,21 @@ import ThirdProductThumbnailImage from "@images/image-product-3-thumbnail.jpg";
 import FourthProductThumbnailImage from "@images/image-product-4-thumbnail.jpg";
 
 const ProductImages = () => {
+  const imageRef = useRef<HTMLElement>(null);
+
   const { breakpoint } = useBreakpoint();
+
+  const handleChangeImage = (event: MouseEvent<HTMLElement>) => {
+    const currentClickedImage = event.currentTarget.getAttribute("id")!;
+    setNewImage(currentClickedImage, imageRef);
+  };
 
   return (
     <section className="tablet:w-11/12 laptop:w-10/12">
-      <figure className="w-screen mx-auto tablet:w-full laptop:w-11/12 desktop:w-10/12">
+      <figure
+        className="w-screen mx-auto tablet:w-full laptop:w-11/12 desktop:w-10/12"
+        ref={imageRef}
+      >
         <Image
           src={FirstProductImage}
           alt="First Product Image"
@@ -26,9 +39,11 @@ const ProductImages = () => {
       {breakpoint.size !== "MOBILE" && (
         <figure className="w-full mx-auto flex justify-between items-center tablet:mt-4 tablet:gap-x-2 laptop:w-11/12 laptop:mt-6 desktop:w-10/12 desktop:mt-6">
           <button
+            id="1"
             type="button"
             aria-label="First Product Thumbnail Button"
             className="group duration-300 rounded-lg overflow-hidden tablet:w-[60px] tablet:h-[60px] laptop:w-[72px] laptop:h-[72px] hover:ring-2 hover:ring-primary-orange"
+            onClick={handleChangeImage}
           >
             <Image
               src={FirstProductThumbnailImage}
@@ -40,9 +55,11 @@ const ProductImages = () => {
           </button>
 
           <button
+            id="2"
             type="button"
             aria-label="Second Product Thumbnail Button"
             className="group duration-300 rounded-lg overflow-hidden tablet:w-[60px] tablet:h-[60px] laptop:w-[72px] laptop:h-[72px] hover:ring-2 hover:ring-primary-orange"
+            onClick={handleChangeImage}
           >
             <Image
               src={SecondProductThumbnailImage}
@@ -54,9 +71,11 @@ const ProductImages = () => {
           </button>
 
           <button
+            id="3"
             type="button"
             aria-label="Third Product Thumbnail Button"
             className="group duration-300 rounded-lg overflow-hidden tablet:w-[60px] tablet:h-[60px] laptop:w-[72px] laptop:h-[72px] hover:ring-2 hover:ring-primary-orange"
+            onClick={handleChangeImage}
           >
             <Image
               src={ThirdProductThumbnailImage}
@@ -68,9 +87,11 @@ const ProductImages = () => {
           </button>
 
           <button
+            id="4"
             type="button"
             aria-label="Fourth Product Thumbnail Button"
             className="group duration-300 rounded-lg overflow-hidden tablet:w-[60px] tablet:h-[60px] laptop:w-[72px] laptop:h-[72px] hover:ring-2 hover:ring-primary-orange"
+            onClick={handleChangeImage}
           >
             <Image
               src={FourthProductThumbnailImage}
