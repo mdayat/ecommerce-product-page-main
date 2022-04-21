@@ -25,6 +25,7 @@ module.exports = {
         white: "hsl(0, 0%, 100%)",
         black: "hsl(0, 0%, 0%)",
       },
+      error: "hsl(354, 71%, 53%)",
     },
     extend: {
       boxShadow: {
@@ -35,11 +36,21 @@ module.exports = {
       },
       animation: {
         zoom: "zoom .5s ease-in-out",
+        popup: "popup .5s ease-in-out",
+        fadein: "fadein .3s linear",
       },
       keyframes: {
         zoom: {
           "0%": { transform: "scale(.5)" },
           "100%": { transform: "scale(1)" },
+        },
+        popup: {
+          "0%": { transform: "translate(0, -50px)", opacity: ".5" },
+          "100%": { transform: "translate(0)", opacity: "1" },
+        },
+        fadein: {
+          "0%": { opacity: ".5" },
+          "100%": { opacity: "1" },
         },
       },
     },

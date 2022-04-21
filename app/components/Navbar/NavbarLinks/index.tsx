@@ -33,10 +33,10 @@ const NavbarLinks = ({
       {device === "DESKTOP" ? (
         <nav className="h-full hidden tablet:grid place-items-center">
           <ul className="group h-full flex justify-between items-center tablet:gap-x-4 laptop:gap-x-6 desktop:gap-x-8">
-            <li className="h-full grid place-items-center transition-all duration-500 pt-1 border-b-4 border-transparent">
+            <li className="link-wrapper">
               <Link href="#">
                 <a
-                  className="text-neutral-darkGrayishBlue transition-all duration-500 tablet:text-sm laptop:text-base"
+                  className="desktop-link"
                   onMouseEnter={handleLinkBorderOnMouseEnter}
                   onMouseOut={handleLinkBorderOnMouseOut}
                 >
@@ -45,10 +45,10 @@ const NavbarLinks = ({
               </Link>
             </li>
 
-            <li className="h-full grid place-items-center transition-all duration-500 pt-1 border-b-4 border-transparent">
+            <li className="link-wrapper">
               <Link href="#">
                 <a
-                  className="text-neutral-darkGrayishBlue transition-all duration-500 tablet:text-sm laptop:text-base"
+                  className="desktop-link"
                   onMouseEnter={handleLinkBorderOnMouseEnter}
                   onMouseOut={handleLinkBorderOnMouseOut}
                 >
@@ -57,10 +57,10 @@ const NavbarLinks = ({
               </Link>
             </li>
 
-            <li className="h-full grid place-items-center transition-all duration-500 pt-1 border-b-4 border-transparent">
+            <li className="link-wrapper">
               <Link href="#">
                 <a
-                  className="text-neutral-darkGrayishBlue transition-all duration-500 tablet:text-sm laptop:text-base"
+                  className="desktop-link"
                   onMouseEnter={handleLinkBorderOnMouseEnter}
                   onMouseOut={handleLinkBorderOnMouseOut}
                 >
@@ -69,10 +69,10 @@ const NavbarLinks = ({
               </Link>
             </li>
 
-            <li className="h-full grid place-items-center transition-all duration-500 pt-1 border-b-4 border-transparent">
+            <li className="link-wrapper">
               <Link href="#">
                 <a
-                  className="text-neutral-darkGrayishBlue transition-all duration-500 tablet:text-sm laptop:text-base"
+                  className="desktop-link"
                   onMouseEnter={handleLinkBorderOnMouseEnter}
                   onMouseOut={handleLinkBorderOnMouseOut}
                 >
@@ -81,10 +81,10 @@ const NavbarLinks = ({
               </Link>
             </li>
 
-            <li className="h-full grid place-items-center transition-all duration-500 pt-1 border-b-4 border-transparent">
+            <li className="link-wrapper">
               <Link href="#">
                 <a
-                  className="text-neutral-darkGrayishBlue transition-all duration-500 tablet:text-sm laptop:text-base"
+                  className="desktop-link"
                   onMouseEnter={handleLinkBorderOnMouseEnter}
                   onMouseOut={handleLinkBorderOnMouseOut}
                 >
@@ -95,7 +95,7 @@ const NavbarLinks = ({
           </ul>
         </nav>
       ) : (
-        <nav className="fixed top-0 bottom-0 left-0 z-10 w-[60vw] bg-neutral-white after:absolute after:top-0 after:bottom-0 after:w-[40vw] after:ml-[60vw] after:bg-neutral-black after:bg-opacity-70">
+        <nav className="fixed animate-fadein top-0 bottom-0 left-0 z-10 w-[60vw] bg-neutral-white after:absolute after:top-0 after:bottom-0 after:w-[40vw] after:ml-[60vw] after:bg-neutral-black after:bg-opacity-70">
           <button
             type="button"
             aria-label="Close SideBar Button"
@@ -104,48 +104,38 @@ const NavbarLinks = ({
             onClick={() => setIsSidebarCollapsed(false)}
           >
             <i aria-label="Close Icon">
-              <CloseIcon />
+              <CloseIcon className="w-3 fill-neutral-darkGrayishBlue" />
             </i>
           </button>
 
           <ul className="flex flex-col justify-between gap-y-2.5 pl-4 mobile:pl-5">
             <li>
               <Link href="#">
-                <a className="text-sm font-bold text-neutral-veryVarkBlue">
-                  Collections
-                </a>
+                <a className="mobile-link">Collections</a>
               </Link>
             </li>
 
             <li>
               <Link href="#">
-                <a className="text-sm font-bold text-neutral-veryVarkBlue">
-                  Men
-                </a>
+                <a className="mobile-link">Men</a>
               </Link>
             </li>
 
             <li>
               <Link href="#">
-                <a className="text-sm font-bold text-neutral-veryVarkBlue">
-                  Woman
-                </a>
+                <a className="mobile-link">Woman</a>
               </Link>
             </li>
 
             <li>
               <Link href="#">
-                <a className="text-sm font-bold text-neutral-veryVarkBlue">
-                  Contact
-                </a>
+                <a className="mobile-link">Contact</a>
               </Link>
             </li>
 
             <li>
               <Link href="#">
-                <a className="text-sm font-bold text-neutral-veryVarkBlue">
-                  About
-                </a>
+                <a className="mobile-link">About</a>
               </Link>
             </li>
           </ul>

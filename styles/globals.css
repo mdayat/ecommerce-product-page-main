@@ -1,3 +1,26 @@
 @tailwind base;
+
 @tailwind components;
+@layer components {
+  .btn-orange {
+    @apply font-kumbhSans text-neutral-white bg-primary-orange rounded-lg hover:shadow-primary-orange hover:shadow-3xl hover:opacity-75 transition-all duration-300 py-2.5 desktop:py-3;
+  }
+
+  .img-thumbnail {
+    @apply overflow-hidden rounded-lg hover:ring-2 hover:ring-primary-orange transition-all duration-300 tablet:w-[60px] tablet:h-[60px] laptop:w-[72px] laptop:h-[72px];
+  }
+
+  .link-wrapper {
+    @apply h-full grid place-items-center transition-all duration-500 border-b-4 border-transparent pt-1;
+  }
+
+  .desktop-link {
+    @apply text-neutral-darkGrayishBlue transition-all duration-500 tablet:text-sm laptop:text-base;
+  }
+
+  .mobile-link {
+    @apply text-neutral-veryVarkBlue font-bold text-sm;
+  }
+}
+
 @tailwind utilities;

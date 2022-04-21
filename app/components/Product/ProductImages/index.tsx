@@ -72,10 +72,7 @@ const ProductImages = () => {
             </button>
 
             <SwiperSlide>
-              <figure
-                className="w-screen mx-auto tablet:w-full laptop:w-11/12 desktop:w-10/12"
-                ref={imageRef}
-              >
+              <figure className="w-screen mx-auto">
                 <Image
                   src={FirstProductImage}
                   alt="First Product Image"
@@ -87,10 +84,7 @@ const ProductImages = () => {
             </SwiperSlide>
 
             <SwiperSlide>
-              <figure
-                className="w-screen mx-auto tablet:w-full laptop:w-11/12 desktop:w-10/12"
-                ref={imageRef}
-              >
+              <figure className="w-screen mx-auto">
                 <Image
                   src={SecondProductImage}
                   alt="First Product Image"
@@ -102,10 +96,7 @@ const ProductImages = () => {
             </SwiperSlide>
 
             <SwiperSlide>
-              <figure
-                className="w-screen mx-auto tablet:w-full laptop:w-11/12 desktop:w-10/12"
-                ref={imageRef}
-              >
+              <figure className="w-screen mx-auto">
                 <Image
                   src={ThirdProductImage}
                   alt="First Product Image"
@@ -117,10 +108,7 @@ const ProductImages = () => {
             </SwiperSlide>
 
             <SwiperSlide>
-              <figure
-                className="w-screen mx-auto tablet:w-full laptop:w-11/12 desktop:w-10/12"
-                ref={imageRef}
-              >
+              <figure className="w-screen mx-auto">
                 <Image
                   src={FourthProductImage}
                   alt="First Product Image"
@@ -137,7 +125,7 @@ const ProductImages = () => {
       {breakpoint.size === "DESKTOP" && (
         <>
           <figure
-            className="w-screen mx-auto tablet:w-full laptop:w-11/12 desktop:w-10/12 animate-zoom"
+            className="w-screen mx-auto animate-zoom tablet:w-full laptop:w-11/12 desktop:w-10/12"
             ref={imageRef}
           >
             <Image
@@ -154,7 +142,7 @@ const ProductImages = () => {
               id="1"
               type="button"
               aria-label="First Product Thumbnail Button"
-              className="group duration-300 rounded-lg overflow-hidden tablet:w-[60px] tablet:h-[60px] laptop:w-[72px] laptop:h-[72px] hover:ring-2 hover:ring-primary-orange"
+              className="group img-thumbnail"
               onClick={handleChangeImage}
             >
               <Image
@@ -170,7 +158,7 @@ const ProductImages = () => {
               id="2"
               type="button"
               aria-label="Second Product Thumbnail Button"
-              className="group duration-300 rounded-lg overflow-hidden tablet:w-[60px] tablet:h-[60px] laptop:w-[72px] laptop:h-[72px] hover:ring-2 hover:ring-primary-orange"
+              className="group img-thumbnail"
               onClick={handleChangeImage}
             >
               <Image
@@ -186,7 +174,7 @@ const ProductImages = () => {
               id="3"
               type="button"
               aria-label="Third Product Thumbnail Button"
-              className="group duration-300 rounded-lg overflow-hidden tablet:w-[60px] tablet:h-[60px] laptop:w-[72px] laptop:h-[72px] hover:ring-2 hover:ring-primary-orange"
+              className="group img-thumbnail"
               onClick={handleChangeImage}
             >
               <Image
@@ -202,7 +190,7 @@ const ProductImages = () => {
               id="4"
               type="button"
               aria-label="Fourth Product Thumbnail Button"
-              className="group duration-300 rounded-lg overflow-hidden tablet:w-[60px] tablet:h-[60px] laptop:w-[72px] laptop:h-[72px] hover:ring-2 hover:ring-primary-orange"
+              className="group img-thumbnail"
               onClick={handleChangeImage}
             >
               <Image
