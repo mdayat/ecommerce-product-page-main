@@ -4,7 +4,6 @@ function Document() {
   return (
     <Html lang="en" className="scroll-smooth">
       <Head>
-        <link rel="icon" href="/assets/icons/favicon-32x32.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"

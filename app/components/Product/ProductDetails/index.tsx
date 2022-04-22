@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
+import { useCart } from "@hooks";
 import { preventKeyboardScroll, preventScroll } from "@utils";
 
 import CloseIcon from "@icons/icon-close.svg";
@@ -27,13 +29,21 @@ const ProductDetails = ({ productDetails }: ProductDetailsProps) => {
     "ERROR" | "SUCCEED" | "DEFAULT"
   >("DEFAULT");
   const [incrementNumber, setIncrementNumber] = useState(0);
+  const { reload } = useRouter();
 
-  const { company, productTitle, productDescription, discount } =
+  const { addToCart } = useCart();
+  const { id, company, productTitle, productDescription, discount } =
     productDetails;
 
   const handleClickAddToCartButton = () => {
-    if (typeof window === "undefined") return;
     if (incrementNumber === 0) return setAddToCartStatus("ERROR");
+
+    addToCart({
+      id,
+      productTitle,
+      productPrice: discount?.discountPrice,
+      productOrderQuantity: incrementNumber,
+    });
 
     setAddToCartStatus("SUCCEED");
   };
@@ -90,12 +100,15 @@ const ProductDetails = ({ productDetails }: ProductDetailsProps) => {
       </div>
 
       {addToCartStatus === "SUCCEED" && (
-        <div className="absolute w-screen h-screen top-0 left-0 flex justify-center items-center bg-neutral-black bg-opacity-50 z-10">
+        <div className="absolute w-screen h-screen top-0 left-0 flex justify-center items-center bg-neutral-black bg-opacity-50 z-10 animate-fadein">
           <div className="relative h-40 w-60 bg-neutral-white drop-shadow-2xl rounded-lg flex">
             <button
               type="button"
               aria-label="Close Success Add To Cart PopUp"
-              onClick={() => setAddToCartStatus("DEFAULT")}
+              onClick={() => {
+                setAddToCartStatus("DEFAULT");
+                reload();
+              }}
               className="absolute -right-2 -top-2 bg-neutral-lightGrayishBlue p-1 rounded-full"
             >
               <i role="img" aria-label="Close Icon">

@@ -1,5 +1,6 @@
-import { Dispatch, SetStateAction, useEffect } from "react";
+import { Dispatch, SetStateAction, useContext, useEffect } from "react";
 
+import { ProductOrderQuantityContext } from "@pages/index";
 import { ModalCart } from "../ModalCart";
 import { useAccessibilityHandler } from "@hooks";
 
@@ -17,7 +18,13 @@ const NavbarCart = ({
 
   setIsCartClicked = () => {},
 }: NavbarCartProps) => {
+  const result = useContext(ProductOrderQuantityContext);
+
   const { handleButtonClick, handleButtonPressed } = useAccessibilityHandler();
+
+  const productOrderQuantity =
+    result.length !== 0 &&
+    result.map(({ productOrderQuantity }) => productOrderQuantity);
 
   useEffect(() => {
     if (isSidebarCollapsed) setIsCartClicked(false);
@@ -44,7 +51,7 @@ const NavbarCart = ({
         }
       >
         <span className="absolute -top-1 -right-1 font-bold bg-primary-orange text-neutral-white rounded-full select-none text-[8px] px-1.5">
-          3
+          {productOrderQuantity}
         </span>
 
         <i role="img" aria-label="Cart Icon">

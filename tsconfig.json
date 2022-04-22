@@ -31,7 +31,9 @@
       "@interfaces": ["app/interfaces"],
       "@interfaces/*": ["app/interfaces/*"],
       "@utils": ["app/utils"],
-      "@utils/*": ["app/utils/*"]
+      "@utils/*": ["app/utils/*"],
+      "@pages/*": ["pages/*"],
+      "@api/*": ["api/*"]
     },
     "pretty": true,
     "resolveJsonModule": true,
