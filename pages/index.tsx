@@ -1,6 +1,5 @@
 import { createContext } from "react";
 import type { GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
-import axios from "axios";
 
 import {
   TopNavbarComponents,
@@ -11,23 +10,20 @@ import { CartProductData } from "@interfaces";
 
 export const getStaticProps: GetStaticProps = async () => {
   const productData = require("app/data/product.json");
+  const cartProductData = require("app/data/cart.json");
 
-  const result: CartProductData[] = await (
-    await axios.get(process.env.CART_ENDPOINT!)
-  ).data;
-
-  return { props: { productData, result } };
+  return { props: { productData, cartProductData } };
 };
 
 export const ProductOrderQuantityContext = createContext<CartProductData[]>([]);
 
 const Home: NextPage = ({
   productData,
-  result,
+  cartProductData,
 }: InferGetStaticPropsType<GetStaticProps>) => {
   return (
     <>
-      <ProductOrderQuantityContext.Provider value={result}>
+      <ProductOrderQuantityContext.Provider value={cartProductData}>
         <TopNavbarComponents />
       </ProductOrderQuantityContext.Provider>
 
