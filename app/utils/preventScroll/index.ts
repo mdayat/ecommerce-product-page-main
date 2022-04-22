@@ -7,6 +7,7 @@ const preventScroll = (event: WheelEvent | TouchEvent) => {
 const preventKeyboardScroll = (event: KeyboardEvent) => {
   const keyCode = [
     " ",
+    "Enter",
     "Tab",
     "PageUp",
     "PageDown",
