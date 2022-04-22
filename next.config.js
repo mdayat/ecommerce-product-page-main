@@ -1,7 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   env: {
-    CART_ENDPOINT: "http://localhost:3000/api/cart",
+    CART_ENDPOINT:
+      "https://ecommerce-product-page-main-theta.vercel.app/api/cart",
   },
   eslint: {
     dirs: ["app", "pages"],
