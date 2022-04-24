@@ -68,7 +68,7 @@ const TopNavbarComponents = () => {
           <button
             type="button"
             aria-label="Avatar Profile Button"
-            className="rounded-full w-6 tablet:w-[38px] tablet:duration-300 tablet:ease-in-out tablet:hover:ring-2 tablet:hover:ring-primary-orange laptop:w-[42px] desktop:w-[46px]"
+            className="rounded-full w-6 tablet:w-[38px] tablet:transition-all tablet:duration-300 tablet:hover:ring-2 tablet:hover:ring-primary-orange laptop:w-[42px] desktop:w-[46px]"
           >
             <Image
               src={AvatarImage}

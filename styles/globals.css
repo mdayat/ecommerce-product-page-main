@@ -6,8 +6,8 @@
     @apply font-kumbhSans text-neutral-white bg-primary-orange rounded-lg hover:shadow-primary-orange hover:shadow-3xl hover:opacity-75 transition-all duration-300 py-2.5 desktop:py-3;
   }
 
-  .img-thumbnail {
-    @apply overflow-hidden rounded-lg hover:ring-2 hover:ring-primary-orange transition-all duration-300 tablet:w-[60px] tablet:h-[60px] laptop:w-[72px] laptop:h-[72px];
+  .carousel-thumbs {
+    @apply overflow-hidden rounded-lg hover:bg-neutral-white border-2 border-transparent hover:border-2 hover:border-primary-orange transition-all duration-300 tablet:w-[60px] laptop:w-[72px];
   }
 
   .link-wrapper {

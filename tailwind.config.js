@@ -37,7 +37,7 @@ module.exports = {
       animation: {
         zoom: "zoom .5s ease-in-out",
         popup: "popup .5s ease-in-out",
-        fadein: "fadein .3s linear",
+        fadein: "fadein .5s linear",
       },
       keyframes: {
         zoom: {

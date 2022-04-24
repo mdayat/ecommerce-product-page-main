@@ -1,2 +1,2 @@
+export * from "./Carousel";
 export * from "./ProductDetails";
-export * from "./ProductImages";

@@ -60,21 +60,20 @@ const ModalCart = () => {
           )
         )
       ) : (
-        <span
-          role="alert"
-          className="font-kumbhSans font-bold italic text-primary-orange text-sm"
-        >
-          *Oops, you don&apos;t have any items to show in the cart.
+        <span role="alert" className="font-kumbhSans text-center text-sm py-6">
+          Your cart is empty
         </span>
       )}
 
-      <button
-        type="button"
-        aria-label="Checkout Button"
-        className="w-full btn-orange text-sm desktop:text-base"
-      >
-        Checkout
-      </button>
+      {result.length !== 0 && (
+        <button
+          type="button"
+          aria-label="Checkout Button"
+          className="w-full btn-orange text-sm desktop:text-base"
+        >
+          Checkout
+        </button>
+      )}
     </section>
   );
 };
