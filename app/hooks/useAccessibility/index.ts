@@ -1,4 +1,4 @@
-import { MouseEvent, KeyboardEvent } from "react";
+import type { MouseEvent, KeyboardEvent } from "react";
 
 const useAccessibility = () => {
   const handleAriaExpanded = (

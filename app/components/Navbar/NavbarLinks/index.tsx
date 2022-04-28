@@ -1,4 +1,4 @@
-import { Dispatch, MouseEvent, SetStateAction } from "react";
+import type { Dispatch, MouseEvent, SetStateAction } from "react";
 import Link from "next/link";
 
 import CloseIcon from "@icons/icon-close.svg";

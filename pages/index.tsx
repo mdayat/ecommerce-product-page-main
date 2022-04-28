@@ -1,25 +1,27 @@
-import { createContext, StrictMode, useState } from "react";
+import { createContext, StrictMode, useEffect, useState } from "react";
 import type { GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
 
-import { TopNavbarComponents, ProductDetails, Carousel } from "@components";
-import { CartProductData } from "@interfaces";
+import { TopNavbarComponents, Carousel, ProductDetails } from "@components";
 import { useBreakpoint } from "@hooks";
+import { setCollectionRef, getDocuments } from "@utils";
+import type { CartType, ProductType } from "@interfaces";
 
 import CloseIcon from "@icons/icon-close.svg";
 
 export const getStaticProps: GetStaticProps = async () => {
-  const productData = require("app/data/product.json");
-  const cartProductData = require("app/data/cart.json");
+  const products: ProductType[] = await getDocuments(
+    setCollectionRef("products")
+  );
 
-  return { props: { productData, cartProductData } };
+  return { props: { products } };
 };
 
-export const ProductOrderQuantityContext = createContext<CartProductData[]>([]);
+export const CartQuantityContext = createContext<CartType[]>([]);
 
 const Home: NextPage = ({
-  productData,
-  cartProductData,
+  products,
 }: InferGetStaticPropsType<GetStaticProps>) => {
+  const [cartData, setCartData] = useState<CartType[]>();
   const [isMainImageClicked, setIsMainImageClicked] = useState(false);
 
   const { breakpoint } = useBreakpoint();
@@ -27,13 +29,29 @@ const Home: NextPage = ({
   if (breakpoint.size === "MOBILE")
     isMainImageClicked && setIsMainImageClicked(false);
 
+  useEffect(() => {
+    async function getCart() {
+      try {
+        const result = await getDocuments(setCollectionRef("cart"));
+
+        if (result.length === 0) return;
+
+        setCartData(result);
+      } catch (error: any) {
+        throw new Error(error);
+      }
+    }
+
+    getCart();
+  }, []);
+
   return (
     <>
-      <ProductOrderQuantityContext.Provider value={cartProductData}>
+      <CartQuantityContext.Provider value={cartData}>
         <StrictMode>
           <TopNavbarComponents />
         </StrictMode>
-      </ProductOrderQuantityContext.Provider>
+      </CartQuantityContext.Provider>
 
       <main className="tablet:w-10/12 tablet:mx-auto tablet:grid tablet:grid-cols-2 tablet:place-items-center tablet:mt-20">
         {breakpoint.size === "MOBILE" && (
@@ -73,7 +91,9 @@ const Home: NextPage = ({
         </section>
 
         <StrictMode>
-          <ProductDetails productDetails={productData} />
+          {products.map(({ id, details }: ProductType) => (
+            <ProductDetails key={id} id={id} details={details} />
+          ))}
         </StrictMode>
       </main>
     </>

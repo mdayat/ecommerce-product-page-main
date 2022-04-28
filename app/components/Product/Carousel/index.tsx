@@ -1,7 +1,8 @@
-import { Dispatch, LegacyRef, SetStateAction, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
 import { EffectFade, Keyboard, Navigation, Thumbs } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+import type { Dispatch, LegacyRef, SetStateAction } from "react";
 
 import FirstProductImage from "@images/image-product-1.jpg";
 import SecondProductImage from "@images/image-product-2.jpg";

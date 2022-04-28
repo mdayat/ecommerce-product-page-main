@@ -3,49 +3,46 @@ import { useRouter } from "next/router";
 
 import { useCart } from "@hooks";
 import { preventKeyboardScroll, preventScroll } from "@utils";
+import type { ProductType } from "@interfaces";
 
 import CloseIcon from "@icons/icon-close.svg";
 import MinusIcon from "@icons/icon-minus.svg";
 import PlusIcon from "@icons/icon-plus.svg";
 
-interface ProductDetailsProps {
-  productDetails: {
-    id?: number;
-    company?: string;
-    product?: string;
-    productTitle?: string;
-    productDescription?: string;
-    price?: number;
-    discount?: {
-      originalPrice?: number;
-      discountPrice?: number;
-      discountPrecentage?: number;
-    };
-  };
-}
-
-const ProductDetails = ({ productDetails }: ProductDetailsProps) => {
+const ProductDetails = ({ id, details }: ProductType) => {
   const [addToCartStatus, setAddToCartStatus] = useState<
     "ERROR" | "SUCCEED" | "DEFAULT"
   >("DEFAULT");
+  const [addToCartMessage, setAddToCartMessage] = useState("");
   const [incrementNumber, setIncrementNumber] = useState(0);
   const { reload } = useRouter();
 
   const { addToCart } = useCart();
-  const { id, company, productTitle, productDescription, discount } =
-    productDetails;
 
-  const handleClickAddToCartButton = () => {
-    if (incrementNumber === 0) return setAddToCartStatus("ERROR");
+  const handleClickAddToCartButton = async () => {
+    if (incrementNumber === 0) {
+      setAddToCartStatus("ERROR");
+      setAddToCartMessage(
+        "Please Add The Number Of Items Before Adding To The List"
+      );
+      return;
+    }
 
-    addToCart({
-      id,
-      productTitle,
-      productPrice: discount?.discountPrice,
-      productOrderQuantity: incrementNumber,
+    const result = await addToCart("cart", {
+      productId: id,
+      title: details.title,
+      price: details.discountPrice,
+      quantity: incrementNumber,
     });
 
+    if (result === "Product Has Been Updated") {
+      setAddToCartStatus("SUCCEED");
+      setAddToCartMessage(result);
+      return;
+    }
+
     setAddToCartStatus("SUCCEED");
+    setAddToCartMessage(result);
   };
 
   useEffect(() => {
@@ -71,31 +68,31 @@ const ProductDetails = ({ productDetails }: ProductDetailsProps) => {
     <section className="w-11/12 mx-auto flex flex-col justify-between mt-6 tablet:w-9/12 tablet:place-self-center tablet:gap-y-4 tablet:mt-0 laptop:gap-y-6">
       <div className="flex flex-col justify-between items-start gap-y-2 laptop:gap-y-3">
         <h2 className="font-kumbhSans font-bold uppercase text-primary-orange text-xs desktop:text-sm">
-          {company}
+          {details.brand}
         </h2>
 
         <h1 className="font-kumbhSans font-bold text-2xl laptop:text-3xl desktop:text-4xl">
-          {productTitle}
+          {details.title}
         </h1>
       </div>
 
       <p className="font-kumbhSans text-neutral-darkGrayishBlue text-sm mt-4 tablet:mt-0 desktop:text-base">
-        {productDescription}
+        {details.description}
       </p>
 
       <div className="flex justify-between items-center gap-y-1.5 mt-6 tablet:flex-col tablet:items-start tablet:mt-0">
         <div className="flex justify-start items-center gap-x-4">
           <p className="font-kumbhSans font-bold desktop:text-lg">
-            ${discount?.discountPrice}.00
+            ${details.discountPrice}.00
           </p>
 
           <p className="bg-primary-paleOrange text-primary-orange font-bold rounded-md px-1 text-[10px] desktop:text-xs">
-            {discount?.discountPrecentage}%
+            {(details.discountPrice / details.originalPrice) * 100}%
           </p>
         </div>
 
         <p className="text-neutral-grayishBlue font-bold line-through text-xs">
-          {discount?.originalPrice}.00
+          {details.originalPrice}.00
         </p>
       </div>
 
@@ -120,7 +117,7 @@ const ProductDetails = ({ productDetails }: ProductDetailsProps) => {
               role="alert"
               className="block basis-full self-center font-kumbhSans font-bold italic text-primary-orange text-center"
             >
-              Product Has Been Added Successfully
+              {addToCartMessage}
             </span>
           </div>
         </div>
@@ -131,7 +128,7 @@ const ProductDetails = ({ productDetails }: ProductDetailsProps) => {
           role="alert"
           className="font-kumbhSans font-bold italic text-error text-xs mt-4 tablet::mt-0"
         >
-          *Please Add The Number Of Items Before Adding To The List
+          *{addToCartMessage}
         </span>
       )}
 

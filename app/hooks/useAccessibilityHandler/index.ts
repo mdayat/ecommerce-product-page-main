@@ -1,4 +1,9 @@
-import { Dispatch, KeyboardEvent, MouseEvent, SetStateAction } from "react";
+import type {
+  Dispatch,
+  KeyboardEvent,
+  MouseEvent,
+  SetStateAction,
+} from "react";
 
 import { useAccessibility } from "../useAccessibility";
 

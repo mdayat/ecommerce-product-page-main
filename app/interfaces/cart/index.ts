@@ -1,6 +1,9 @@
-export interface CartProductData {
-  id?: number;
-  productTitle?: string;
-  productPrice?: number;
-  productOrderQuantity?: number;
+interface CartType {
+  id?: string;
+  productId?: string;
+  title?: string;
+  price?: number;
+  quantity?: number;
 }
+
+export type { CartType };

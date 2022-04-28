@@ -1,14 +1,14 @@
 import { useContext } from "react";
 import Image from "next/image";
 
-import { ProductOrderQuantityContext } from "@pages/index";
+import { CartQuantityContext } from "@pages/index";
 import { useCart } from "@hooks";
 
 import FirstProductThumbnailImage from "@images/image-product-1-thumbnail.jpg";
 import DeleteIcon from "@icons/icon-delete.svg";
 
 const ModalCart = () => {
-  const result = useContext(ProductOrderQuantityContext);
+  const cartProducts = useContext(CartQuantityContext);
 
   const { removeFromCart } = useCart();
 
@@ -18,54 +18,52 @@ const ModalCart = () => {
         Cart
       </h4>
 
-      {result.length !== 0 ? (
-        result.map(
-          ({ id, productTitle, productPrice, productOrderQuantity }) => (
-            <div key={id} className="flex justify-between items-center">
-              <div className="flex justify-between items-center gap-x-4">
-                <figure className="w-[38px] h-[38px] desktop:w-[42px] desktop:h-[42px]">
-                  <Image
-                    src={FirstProductThumbnailImage}
-                    alt="Cart Product Thumbnail Image"
-                    layout="responsive"
-                    placeholder="blur"
-                    className="rounded-md"
-                  />
-                </figure>
+      {cartProducts.length !== 0 ? (
+        cartProducts.map(({ productId, title, price, quantity }) => (
+          <div key={productId} className="flex justify-between items-center">
+            <div className="flex justify-between items-center gap-x-4">
+              <figure className="w-[38px] h-[38px] desktop:w-[42px] desktop:h-[42px]">
+                <Image
+                  src={FirstProductThumbnailImage}
+                  alt="Cart Product Thumbnail Image"
+                  layout="responsive"
+                  placeholder="blur"
+                  className="rounded-md"
+                />
+              </figure>
 
-                <div className="flex flex-col justify-between">
-                  <h4 className="text-neutral-darkGrayishBlue font-kumbhSans tablet:text-sm desktop:text-base">
-                    {productTitle}
-                  </h4>
+              <div className="flex flex-col justify-between">
+                <h4 className="text-neutral-darkGrayishBlue font-kumbhSans text-sm desktop:text-base">
+                  {title}
+                </h4>
 
-                  <h4 className="text-neutral-darkGrayishBlue font-kumbhSans text-sm desktop:text-base">
-                    ${productPrice}.00 x {productOrderQuantity}&nbsp;
-                    <span className="font-kumbhSans font-bold text-neutral-veryVarkBlue text-sm desktop:text-base">
-                      ${productPrice! * productOrderQuantity!}.00
-                    </span>
-                  </h4>
-                </div>
+                <h4 className="text-neutral-darkGrayishBlue font-kumbhSans text-sm desktop:text-base">
+                  ${price}.00 x {quantity}&nbsp;
+                  <span className="font-kumbhSans font-bold text-neutral-veryVarkBlue text-sm desktop:text-base">
+                    ${price! * quantity!}.00
+                  </span>
+                </h4>
               </div>
-
-              <button
-                type="button"
-                aria-label="Delete Button"
-                onClick={() => removeFromCart(id!)}
-              >
-                <i role="img" aria-label="Delete Icon">
-                  <DeleteIcon />
-                </i>
-              </button>
             </div>
-          )
-        )
+
+            <button
+              type="button"
+              aria-label="Delete Button"
+              onClick={() => removeFromCart("cart", productId)}
+            >
+              <i role="img" aria-label="Delete Icon">
+                <DeleteIcon />
+              </i>
+            </button>
+          </div>
+        ))
       ) : (
         <span role="alert" className="font-kumbhSans text-center text-sm py-6">
           Your cart is empty
         </span>
       )}
 
-      {result.length !== 0 && (
+      {cartProducts.length !== 0 && (
         <button
           type="button"
           aria-label="Checkout Button"
