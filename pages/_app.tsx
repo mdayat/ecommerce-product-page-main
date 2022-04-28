@@ -12,6 +12,10 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="author" content="Muhammad Nur Hidayat" />
+        <meta
+          name="description"
+          content="These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they'll withstand everything the weather can offer"
+        />
         <title>Frontend Mentor | E-commerce product page</title>
       </Head>
 
