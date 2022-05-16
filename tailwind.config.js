@@ -35,9 +35,9 @@ module.exports = {
         kumbhSans: ["Kumbh Sans", "sans-serif"],
       },
       animation: {
-        zoom: "zoom .5s ease-in-out",
-        popup: "popup .5s ease-in-out",
-        fadein: "fadein .5s linear",
+        zoom: "zoom .3s ease-in-out",
+        popup: "popup .3s ease-in-out",
+        fadein: "fadein .3s ease-in-out",
       },
       keyframes: {
         zoom: {

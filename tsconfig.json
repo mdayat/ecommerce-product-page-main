@@ -30,6 +30,8 @@
       "@images/*": ["public/assets/images/*"],
       "@interfaces": ["app/interfaces"],
       "@interfaces/*": ["app/interfaces/*"],
+      "@types": ["app/types"],
+      "@types/*": ["app/types/*"],
       "@utils": ["app/utils"],
       "@utils/*": ["app/utils/*"],
       "@pages/*": ["pages/*"]

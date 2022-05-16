@@ -1,4 +1,5 @@
 /** @type {import('next').NextConfig} */
+
 const nextConfig = {
   env: {
     API_KEY: "AIzaSyB8JyvTmwx1wFzoXDY7R1lc2ar2e5CbaKI",
@@ -24,4 +25,4 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+export default nextConfig;

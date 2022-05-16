@@ -7,14 +7,14 @@ import { useCart } from "@hooks";
 import FirstProductThumbnailImage from "@images/image-product-1-thumbnail.jpg";
 import DeleteIcon from "@icons/icon-delete.svg";
 
-const ModalCart = () => {
+const CartModal = () => {
   const cartProducts = useContext(CartQuantityContext);
 
   const { removeFromCart } = useCart();
 
   return (
     <section className="absolute z-10 animate-popup top-16 left-0 right-0 flex flex-col justify-between gap-y-6 bg-neutral-white rounded-lg drop-shadow-2xl m-2 px-5 pb-7 tablet:top-20 tablet:left-[60%] tablet:right-10 laptop:left-[62.5%] desktop:left-[70%]">
-      <h4 className="w-full font-bold h-16 flex justify-start items-center border-b-[1px] border-neutral-grayishBlue">
+      <h4 className="w-full font-kumbhSans font-bold h-16 flex justify-start items-center border-b-[1px] border-neutral-grayishBlue">
         Cart
       </h4>
 
@@ -67,7 +67,7 @@ const ModalCart = () => {
         <button
           type="button"
           aria-label="Checkout Button"
-          className="w-full btn-orange text-sm desktop:text-base"
+          className="w-full btn-orange font-kumbhSans text-sm desktop:text-base"
         >
           Checkout
         </button>
@@ -76,4 +76,4 @@ const ModalCart = () => {
   );
 };
 
-export { ModalCart };
+export { CartModal };

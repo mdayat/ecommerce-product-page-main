@@ -1,2 +1,2 @@
-export * from "./ModalCart";
-export * from "./NavbarCart";
+export * from "./CartModal";
+export * from "./CartComponents";

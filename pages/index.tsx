@@ -1,8 +1,8 @@
 import { createContext, StrictMode, useEffect, useState } from "react";
 import type { GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
 
-import { TopNavbarComponents, Carousel, ProductDetails } from "@components";
-import { useBreakpoint } from "@hooks";
+import { TopNavbar, Carousel, ProductDetails } from "@components";
+import { useWindowSize } from "@hooks";
 import { setCollectionRef, getDocuments } from "@utils";
 import type { CartType, ProductType } from "@interfaces";
 
@@ -21,13 +21,12 @@ export const CartQuantityContext = createContext<CartType[]>([]);
 const Home: NextPage = ({
   products,
 }: InferGetStaticPropsType<GetStaticProps>) => {
-  const [cartData, setCartData] = useState<CartType[]>();
+  const [cartData, setCartData] = useState<CartType[]>([]);
   const [isMainImageClicked, setIsMainImageClicked] = useState(false);
 
-  const { breakpoint } = useBreakpoint();
+  const { width } = useWindowSize();
 
-  if (breakpoint.size === "MOBILE")
-    isMainImageClicked && setIsMainImageClicked(false);
+  if (width < 768) isMainImageClicked && setIsMainImageClicked(false);
 
   useEffect(() => {
     async function getCart() {
@@ -49,19 +48,19 @@ const Home: NextPage = ({
     <>
       <CartQuantityContext.Provider value={cartData}>
         <StrictMode>
-          <TopNavbarComponents />
+          <TopNavbar />
         </StrictMode>
       </CartQuantityContext.Provider>
 
       <main className="tablet:w-10/12 tablet:mx-auto tablet:grid tablet:grid-cols-2 tablet:place-items-center tablet:mt-20">
-        {breakpoint.size === "MOBILE" && (
+        {width < 768 && (
           <StrictMode>
             <Carousel carouselOptions="CAROUSEL WITH BUTTONS" />
           </StrictMode>
         )}
 
         <section>
-          {breakpoint.size === "DESKTOP" && (
+          {width >= 768 && (
             <>
               <Carousel
                 carouselOptions="CAROUSEL WITH THUMBS"

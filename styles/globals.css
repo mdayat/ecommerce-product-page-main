@@ -10,16 +10,20 @@
     @apply overflow-hidden rounded-lg hover:bg-neutral-white border-2 border-transparent hover:border-2 hover:border-primary-orange transition-all duration-300 tablet:w-[60px] laptop:w-[72px];
   }
 
-  .link-wrapper {
-    @apply h-full grid place-items-center transition-all duration-500 border-b-4 border-transparent pt-1;
+  .desktop-link-wrapper {
+    @apply h-full grid place-items-center transition-all duration-300 border-b-4 border-transparent pt-1;
   }
 
   .desktop-link {
-    @apply text-neutral-darkGrayishBlue transition-all duration-500 tablet:text-sm laptop:text-base;
+    @apply text-neutral-darkGrayishBlue font-kumbhSans font-bold transition-all duration-300 tablet:text-sm laptop:text-base;
   }
 
   .mobile-link {
-    @apply text-neutral-veryVarkBlue font-bold text-sm;
+    @apply text-neutral-black font-kumbhSans font-bold text-sm;
+  }
+
+  .sidebar-transparent {
+    @apply after:absolute after:top-0 after:bottom-0 after:left-0 after:w-[40vw] after:ml-[60vw] after:bg-neutral-black after:bg-opacity-70;
   }
 }
 
