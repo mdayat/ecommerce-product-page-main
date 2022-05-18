@@ -5,7 +5,16 @@ const useAccessibility = () => {
       : (event.ariaExpanded = "true");
   };
 
-  return { handleAriaExpanded };
+  const handleDisabled = (
+    event: HTMLButtonElement,
+    disabled: boolean,
+    ariaDisabled: "true" | "false"
+  ) => {
+    event.disabled = disabled;
+    event.ariaDisabled = ariaDisabled;
+  };
+
+  return { handleAriaExpanded, handleDisabled };
 };
 
 export { useAccessibility };

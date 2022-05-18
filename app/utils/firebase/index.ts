@@ -1,15 +1,5 @@
 import { initializeApp } from "firebase/app";
-import {
-  addDoc,
-  collection,
-  deleteDoc,
-  doc,
-  getDocs,
-  getFirestore,
-  increment,
-  onSnapshot,
-  updateDoc,
-} from "firebase/firestore";
+import { collection, getDocs, getFirestore } from "firebase/firestore/lite";
 import type { CollectionReference, DocumentData } from "firebase/firestore";
 
 const firebaseApp = initializeApp({
@@ -24,9 +14,8 @@ const firebaseApp = initializeApp({
 
 const firestoreDatabase = getFirestore(firebaseApp);
 
-const setCollectionRef = (collectionName: string) => {
-  return collection(firestoreDatabase, collectionName);
-};
+const setCollectionRef = (collectionName: string) =>
+  collection(firestoreDatabase, collectionName);
 
 const getDocuments = async (
   collectionRef: CollectionReference<DocumentData>
@@ -45,15 +34,4 @@ const getDocuments = async (
   }
 };
 
-export {
-  addDoc,
-  doc,
-  deleteDoc,
-  firebaseApp,
-  firestoreDatabase,
-  getDocuments,
-  increment,
-  onSnapshot,
-  setCollectionRef,
-  updateDoc,
-};
+export { firebaseApp, firestoreDatabase, getDocuments, setCollectionRef };

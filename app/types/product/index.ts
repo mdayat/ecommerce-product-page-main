@@ -1,4 +1,4 @@
-interface ProductType {
+type ProductTypes = {
   id?: string;
   category?: string;
   details: {
@@ -8,6 +8,6 @@ interface ProductType {
     originalPrice?: number;
     discountPrice?: number;
   };
-}
+};
 
-export type { ProductType };
+export type { ProductTypes };

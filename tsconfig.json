@@ -28,8 +28,6 @@
       "@icons/*": ["public/assets/icons/*"],
       "@images": ["public/assets/images"],
       "@images/*": ["public/assets/images/*"],
-      "@interfaces": ["app/interfaces"],
-      "@interfaces/*": ["app/interfaces/*"],
       "@types": ["app/types"],
       "@types/*": ["app/types/*"],
       "@utils": ["app/utils"],
@@ -41,8 +39,17 @@
     "strict": false,
     "skipLibCheck": true,
     "sourceMap": true,
-    "target": "es2018"
+    "target": "esnext"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".d.ts",
+    "app/components/Product/ProductDetails/index.tsx",
+    "pages/about.tsx",
+    "app/components/Product/NotificationModal/index.tsx",
+    "pages/index.tsx"
+  ],
   "exclude": ["node_modules"]
 }

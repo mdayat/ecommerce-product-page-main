@@ -25,19 +25,18 @@ module.exports = {
         white: "hsl(0, 0%, 100%)",
         black: "hsl(0, 0%, 0%)",
       },
-      error: "hsl(354, 71%, 53%)",
     },
     extend: {
+      animation: {
+        zoom: "zoom .3s ease-in-out",
+        popup: "popup .3s ease-in-out",
+        fadein: "fadein .3s ease-in-out",
+      },
       boxShadow: {
         "3xl": "0px 20px 25px -12px hsl(26, 100%, 55%)",
       },
       fontFamily: {
         kumbhSans: ["Kumbh Sans", "sans-serif"],
-      },
-      animation: {
-        zoom: "zoom .3s ease-in-out",
-        popup: "popup .3s ease-in-out",
-        fadein: "fadein .3s ease-in-out",
       },
       keyframes: {
         zoom: {
