@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-import { useAccessibility } from "@hooks/useAccessibility";
+import { useAccessibility } from "@hooks";
 import type { ProductTypes } from "@types";
 
 import CartIcon from "@icons/icon-cart.svg";
@@ -78,13 +78,21 @@ const ProductDetails = ({
             <button
               type="button"
               aria-label="Decrement Number Button"
-              className="py-2.5 pl-3"
-              onClick={() =>
+              className="py-3.5 pl-3"
+              onClick={(event) => {
+                if (event.clientX === 0 && event.clientY === 0) return;
                 setCount((prevCount) => {
                   if (prevCount === 0) return 0;
                   return prevCount - 1;
-                })
-              }
+                });
+              }}
+              onKeyDown={(event) => {
+                if (event.key !== "Enter") return;
+                setCount((prevCount) => {
+                  if (prevCount === 0) return 0;
+                  return prevCount - 1;
+                });
+              }}
             >
               <MinusIcon className="fill-primary-orange scale-[.85] hover:opacity-75 transition-all duration-300" />
             </button>
@@ -94,8 +102,15 @@ const ProductDetails = ({
             <button
               type="button"
               aria-label="Increment Number Button"
-              className="py-2.5 pr-3"
-              onClick={() => setCount(count + 1)}
+              className="py-3.5 pr-3"
+              onClick={(event) => {
+                if (event.clientX === 0 && event.clientY === 0) return;
+                setCount(count + 1);
+              }}
+              onKeyDown={(event) => {
+                if (event.key !== "Enter") return;
+                setCount(count + 1);
+              }}
             >
               <PlusIcon className="fill-primary-orange scale-[.85] hover:opacity-75 transition-all duration-300" />
             </button>
@@ -103,7 +118,7 @@ const ProductDetails = ({
 
           <button
             type="button"
-            className="btn-orange-disabled flex justify-center items-center py-2.5 gap-x-2 text-xs tablet:basis-3/5"
+            className="btn-orange-disabled flex justify-center items-center py-2.5 tablet:py-0 gap-x-2 text-xs tablet:basis-3/5"
             ref={btnRef}
             onClick={() => setIsModalOpened(true)}
           >

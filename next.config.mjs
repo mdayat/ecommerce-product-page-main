@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 import { PHASE_PRODUCTION_BUILD } from "next/constants.js";
+import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
 
 const nextConfig = (phase) => {
   return {

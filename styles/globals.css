@@ -19,7 +19,7 @@
   }
 
   .desktop-link {
-    @apply text-neutral-darkGrayishBlue font-kumbhSans font-bold transition-all duration-300 tablet:text-sm laptop:text-base;
+    @apply text-neutral-darkGrayishBlue font-kumbhSans font-bold transition-all duration-300 tablet:text-sm desktop:text-base;
   }
 
   .mobile-link {

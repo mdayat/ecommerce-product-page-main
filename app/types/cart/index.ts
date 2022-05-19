@@ -1,4 +1,4 @@
-type CartType = {
+type CartTypes = {
   id?: string;
   productId?: string;
   title?: string;
@@ -6,4 +6,4 @@ type CartType = {
   quantity?: number;
 };
 
-export type { CartType };
+export type { CartTypes };

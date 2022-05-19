@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { collection, getDocs, getFirestore } from "firebase/firestore/lite";
+import { collection, getDocs, getFirestore } from "firebase/firestore";
 import type { CollectionReference, DocumentData } from "firebase/firestore";
 
 const firebaseApp = initializeApp({
